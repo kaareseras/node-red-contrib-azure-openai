@@ -1,0 +1,101 @@
+<script type="text/javascript">
+    RED.nodes.registerType('AOAI-config', {
+        category: 'config',
+        defaults: {
+            name: {value: "Name your connection", required: true},
+            deploymentname: {value: "", required: true},
+            modeltype: {value: "gpt-35-turbo", required: true},
+        },
+        credentials: {
+            apikey: {value: "", required: true},
+            endpoint: {value: "", required: true},         
+        },
+        label: function () {
+            return this.name;
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="AOAI-config">
+    <div class="form-tips" style="margin-bottom: 20px;">
+        <h3>Getting Started:</h3>
+        <p>You need to setup an Azure and a AOAI account.</p>
+
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-endpoint"><i class="fa fa-tag"></i> Endpoint</label>
+        <input type="text" id="node-config-input-endpoint">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-apikey"><i class="fa fa-tag"></i> API-KEY</label>
+        <input type="text" id="node-config-input-apikey">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-deploymentname"><i class="fa fa-tag"></i> DEPLOYMENT-NAME</label>
+        <input type="text" id="node-config-input-deploymentname">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-modeltype"><i class="fa fa-tag"></i> Model type</label>
+        <select id="node-config-input-modeltype">
+            <option value="gpt-35-turbo">gpt-35-turbo</option>
+            <option value="text-davinci-00x">text-davinci-00x</option>
+        </select>        
+    </div>
+</script>
+
+
+
+
+<script type="text/javascript">
+    RED.nodes.registerType('AOAI-request',{
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            AOAIConfig: {value: "", type: "AOAI-config"},
+            name: {value:""},
+            systempromt: {value:""},
+            promt: {value:""},
+            maxTokens: {value:128, required: true, validate:RED.validators.number()}
+            
+        },
+        inputs:1,
+        outputs:1,
+        icon: "aoai.png",
+        label: function() {
+            return this.name||"AOAI-request";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="AOAI-request">
+    <div class="form-row">
+        <label for="node-input-AOAIConfig" style="white-space: nowrap; width: 125px">
+            <i class="icon-tag"></i> AOAI account
+        </label>
+        <input type="text" id="node-input-AOAIConfig" placeholder="Select AOAI account">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-systempromt"><i class="icon-tag"></i> Systempromt</label>
+        <input type="text" id="node-input-systempromt">
+    </div>
+    <div class="form-row">
+        <label for="node-input-promt"><i class="icon-tag"></i> Promt</label>
+        <input type="text" id="node-input-promt">
+    </div>
+    <div class="form-row">
+        <label for="node-input-maxTokens"><i class="icon-tag"></i> maxTokens</label>
+        <input type="number" id="node-input-maxTokens">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="AOAI-request">
+    <p>Promt wit Azure Open AI</p>
+</script>

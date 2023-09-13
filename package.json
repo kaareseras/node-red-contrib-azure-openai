@@ -1,0 +1,20 @@
+{
+  "name": "azure-openai",
+  "version": "1.0.0",
+  "description": "utilize Azure OpenAI ",
+  "main": "src/node-red-contrib-azure-openai.js",
+  "node-red": {
+    "nodes": {
+      "Azure OpenAI": "src/node-red-contrib-azure-openai.js"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/identity": "~3.3.0",
+    "@azure/openai": "~1.0.0-beta.5"
+  }
+}
