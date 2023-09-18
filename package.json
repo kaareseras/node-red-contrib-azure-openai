@@ -1,6 +1,6 @@
 {
-  "name": "azure-openai",
-  "version": "1.0.0",
+  "name": "node-red-contrib-azure-openai",
+  "version": "1.0.1",
   "description": "utilize Azure OpenAI ",
   "main": "src/node-red-contrib-azure-openai.js",
   "node-red": {

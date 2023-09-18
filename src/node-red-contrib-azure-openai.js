@@ -67,7 +67,7 @@ module.exports = function(RED) {
                     callAOAI_text_davinci_00x(promt)
                         .then((data) => {
                             console.log(data);
-                            msg.payload = data;
+                            msg.payload.answer = data;
                             node.send(msg);
                             node.status({fill: "green", shape: "ring", text: "Ready"});
                         }) 
@@ -79,7 +79,7 @@ module.exports = function(RED) {
                     callAOAI_gpt35turbo(promt)
                         .then((data) => {
                             console.log(data);
-                            msg.payload = data;
+                            msg.payload.answer = data;
                             node.send(msg);
                             node.status({fill: "green", shape: "ring", text: "Ready"});
                         }) 
