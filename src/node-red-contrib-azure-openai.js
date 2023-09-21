@@ -37,7 +37,7 @@ module.exports = function(RED) {
         this.AOAIConfig = RED.nodes.getNode(config.AOAIConfig);
              
         if (this.AOAIConfig) {
-            console.log("modeltype: " + this.AOAIConfig.modeltype)
+            //console.log("modeltype: " + this.AOAIConfig.modeltype)
             
             node.status({fill: "green", shape: "ring", text: "Ready"});
 
